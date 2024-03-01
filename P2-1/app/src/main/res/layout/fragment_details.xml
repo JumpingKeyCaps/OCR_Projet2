@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <!-- fillViewPort est nécessaire pour que le NestedScrollView fit toute la hauteur de l'écran disponible.
+    Surtout si le contenu du constraintlayout est plus petit en hauteur que celle de l'écran. -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- TODO: A compléter -->
+
+        <!-- L'ordre des vues ci-présentes reflète l'ordre réel d'implémentation des vues -->
+
+        <!-- Guideline horizontal de référence pour fixer la hauteur de l'avatar
+         à 40% de la hauteur totale de l'écran de l'appareil-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/GuidelineForAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <!-- L'avatar de l'animal-->
+        <ImageView
+            android:id="@+id/imageView_avatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/avatar_image_content_description"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/GuidelineForAvatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ImageContrastCheck"
+            tools:src="@tools:sample/avatars" />
+        <!-- Le nom de l'animal -->
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="10dp"
+            android:padding="2dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView_avatar"
+            app:layout_constraintStart_toStartOf="@+id/imageView_avatar"
+            tools:ignore="TextContrastCheck"
+            tools:text="@tools:sample/first_names" />
+        <!--L'icone de l'age -->
+        <ImageView
+            android:id="@+id/icon_age"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/contentDescription_age"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_age"
+            app:layout_constraintEnd_toStartOf="@+id/icon_height"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/GuidelineForAvatar"
+            app:tint="?attr/colorOnBackground" />
+        <!--Le texte de l'âge de l'animal -->
+        <TextView
+            android:id="@+id/textView_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="@tools:sample/cities"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintEnd_toEndOf="@+id/icon_age"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/icon_age"
+            app:layout_constraintTop_toBottomOf="@+id/icon_age" />
+        <!--L'icone du poid -->
+        <ImageView
+            android:id="@+id/icon_weight"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="24dp"
+            android:contentDescription="@string/contentDescription_weight"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_weight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/icon_height"
+            app:layout_constraintTop_toTopOf="@+id/icon_age"
+            app:tint="?attr/colorOnBackground" />
+        <!--Le texte du poid de l'animal -->
+        <TextView
+            android:id="@+id/textView_weight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            tools:text="@tools:sample/cities"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView_age"
+            app:layout_constraintEnd_toEndOf="@+id/icon_weight"
+            app:layout_constraintStart_toStartOf="@+id/icon_weight" />
+        <!--L'icone de la taille -->
+        <ImageView
+            android:id="@+id/icon_height"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:contentDescription="@string/contentDescription_height"
+            android:padding="13dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_height"
+
+            app:layout_constraintEnd_toStartOf="@+id/icon_weight"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/icon_age"
+            app:layout_constraintTop_toBottomOf="@+id/textView_weight"
+            app:tint="?attr/colorOnBackground" />
+        <!--Le texte de la taille de l'animal -->
+        <!-- La subtilité ici est d'appliquer une contrainte verticale au bottom du textView relier au
+        bottom du ConstraintLayout parent (Bottom_toBottomOf), puis d'appliquer un margin bottom.
+        Cela permet en format paysage que le NestedscrollView ne s'arrete pas a la baseline de notre textview,
+        mais un peu plus loin dans le scroll, donnant un rendu esthétique plus agréable.-->
+        <TextView
+            android:id="@+id/textView_height"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            tools:text="@tools:sample/cities"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/icon_height"
+            app:layout_constraintStart_toStartOf="@+id/icon_height"
+            app:layout_constraintTop_toBottomOf="@+id/icon_height"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

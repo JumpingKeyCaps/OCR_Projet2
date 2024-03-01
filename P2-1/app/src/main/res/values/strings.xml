@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">P2</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="home_fragment_label">Home</string>
+    <string name="details_fragment_label">Details</string>
+    <string name="create_fragment_label">Create</string>
+
+    <string name="action_save">Save</string>
+
+    <string name="description_button_add">Add</string>
+
+    <string name="information">%1$s, %2$d years old! Its weight is %3$s kilograms and its size is %4$s centimeters.</string>
+
+    <string name="breed_cat">cat</string>
+    <string name="breed_dog">dog</string>
+    <string name="breed_cow">cow</string>
+    <string name="breed_lama">lama</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_breed">Breed</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_weight">Weight (Kg)</string>
+    <string name="hint_height">Height (cm)</string>
+
+    <string name="value_age">%1$s years old</string>
+    <string name="value_weight">%1$s (Kg)</string>
+    <string name="value_height">%1$s (cm)</string>
+
+    <string name="avatar_image_content_description">A picture of the current animal avatar.</string>
+    <string name="dummy_name">Dummyname</string>
+    <string name="dummy_informations">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</string>
+    <string name="dummy_age" translatable="false">x years</string>
+    <string name="dummy_weight" translatable="false">xx.x (Kg)</string>
+    <string name="dummy_height" translatable="false">xx.x (cm)</string>
+    <string name="contentDescription_age">Icon for the age</string>
+    <string name="contentDescription_weight">Icon for the weight</string>
+    <string name="contentDescription_height">Icon for the height</string>
+</resources>

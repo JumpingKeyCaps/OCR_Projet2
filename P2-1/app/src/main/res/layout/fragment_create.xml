@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- TODO: A compléter -->
+        <!-- On utilise un vertical LinearLayout pour contenir nos vues les unes a la suite des autres. -->
+        <!-- (Rappel :  NestedScrollView ne supporte qu'un seul enfant a sa racine) -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--Le champ de saisie du nom de l'animal (Material Design component,
+            plus précisément le "Outlined text field")-->
+            <!-- Se composant se décompose en un layout et d'un EditText,
+            - le 1er permet l'animation/changement visuel du composant (hint,etc..),
+            - le 2e remplis le rôle d'un Edittext classique -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <!--Le Edittext en lui meme pour le nom-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/field_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionDone"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Le titre du sélecteur d'espèce -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/hint_breed"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            <!-- Le sélecteur de l'espèce, on utilise ici un NumberPicker -->
+            <!-- Rappel : le Numberpicker prend en paramètre un Array de String,
+            il peut donc afficher des chiffres ET du text -->
+            <NumberPicker
+                android:id="@+id/numberpicker_breed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <!-- Le champ de saisie de l'âge (Material Design component)-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_age"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <!--L'Edittext pour l'âge -->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/field_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Le champ de saisie du poid (Material Design component)-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_weight"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <!--Le Edittext pour le poid-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/field_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <!-- Le champ de saisie de la taille (Material Design component)-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_height"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <!--Le Edittext pour la taille-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/field_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    tools:ignore="TextContrastCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/description_button_add"
+        android:text="@string/action_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
