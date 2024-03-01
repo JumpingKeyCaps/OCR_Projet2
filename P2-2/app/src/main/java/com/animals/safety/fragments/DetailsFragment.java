@@ -34,30 +34,23 @@ public class DetailsFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        // Call de la méthode toFill() pour remplir les vues avec les details de l'animal.
+          //On remplit nos vues avec les détails via l'objet Animal retourné par la méthode getAnimal().
+          binding.imageViewAvatar.setImageDrawable(AppCompatResources.getDrawable(getContext(), getAnimal().getBreed().getCover()));
+          binding.textViewName.setText(getAnimal().getName());
+          //La méthode getString(...) ici permet d'insérer notre valeur comme un 'parametre' dans une chaîne de caractère (noter %1$s dans la string).
+          binding.textViewAge.setText(getString(R.string.value_age, String.valueOf(getAnimal().getAge())));
+          binding.textViewWeight.setText(getString(R.string.value_weight, String.valueOf(getAnimal().getWeight())));
+          binding.textViewHeight.setText(getString(R.string.value_height, String.valueOf(getAnimal().getHeight())));
+  
+        // Call de la méthode toFill() pour initialiser nos listeners
         toFill();
-        //Call de la méthode init_All_Listeners() pour initialiser nos ClickListener sur nos boutons.
-        init_All_Listeners();
 
     }
 
     private void toFill() {
         //TODO : à completer
 
-        //On remplit nos vues avec les détails via l'objet Animal retourné par la méthode getAnimal().
-        binding.imageViewAvatar.setImageDrawable(AppCompatResources.getDrawable(getContext(), getAnimal().getBreed().getCover()));
-        binding.textViewName.setText(getAnimal().getName());
-        //La méthode getString(...) ici permet d'insérer notre valeur comme un 'parametre' dans une chaîne de caractère (noter %1$s dans la string).
-        binding.textViewAge.setText(getString(R.string.value_age, String.valueOf(getAnimal().getAge())));
-        binding.textViewWeight.setText(getString(R.string.value_weight, String.valueOf(getAnimal().getWeight())));
-        binding.textViewHeight.setText(getString(R.string.value_height, String.valueOf(getAnimal().getHeight())));
-
-    }
-
-    private void init_All_Listeners(){
-        //On initialise nos listeners ici. (Dans une méthode dédier afin de garder le maximum de lisibilité dans le onViewCreated())
-
-        // On assigne un click listener à notre bouton supprimé.
+         // On assigne un click listener à notre bouton supprimé.
         //[avec une classe anonyme]
         binding.fabDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +71,7 @@ public class DetailsFragment extends Fragment {
             navigateToEdition();
         });
     }
+
 
     private void navigateToEdition() {
         Bundle bundle = new Bundle();
