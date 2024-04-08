@@ -11,4 +11,3 @@ P2-2 :
 Livrable axé sur Java
 
 
-Par Samuel Lebailly
